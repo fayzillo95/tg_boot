@@ -1,0 +1,241 @@
+{
+    "update": {
+        "update_id": 305163983,
+        "message": {
+            "message_id": 325,
+            "from": {
+                "id": 6798335338,
+                "is_bot": false,
+                "first_name": "𝓕𝓐𝓨𝓩𝓘𝓛𝓛𝓞",
+                "last_name": "𝓤𝓜𝓜𝓐𝓣𝓞𝓥",
+                "username": "FayzilloUmmatov",
+                "language_code": "ru"
+            },
+            "chat": {
+                "id": 6798335338,
+                "first_name": "𝓕𝓐𝓨𝓩𝓘𝓛𝓛𝓞",
+                "last_name": "𝓤𝓜𝓜𝓐𝓣𝓞𝓥",
+                "username": "FayzilloUmmatov",
+                "type": "private"
+            },
+            "date": 1751982715,
+            "text": "/start",
+            "entities": [
+                {
+                    "offset": 0,
+                    "length": 6,
+                    "type": "bot_command"
+                }
+            ]
+        }
+    },
+    "telegram": {
+        "token": "8136625937:AAE1NVab4ZriLEYwKmqy3jsw5Q3un6WqvhQ",
+        "options": {
+            "apiRoot": "https://api.telegram.org",
+            "apiMode": "bot",
+            "webhookReply": true,
+            "agent": {
+                "_events": {},
+                "_eventsCount": 2,
+                "defaultPort": 443,
+                "protocol": "https:",
+                "options": {
+                    "keepAlive": true,
+                    "keepAliveMsecs": 10000,
+                    "noDelay": true,
+                    "path": null
+                },
+                "requests": {},
+                "sockets": {},
+                "freeSockets": {
+                    "api.telegram.org:443:::::::::::::::::::::": [
+                        {
+                            "_tlsOptions": {
+                                "pipe": false,
+                                "secureContext": {
+                                    "context": {}
+                                },
+                                "isServer": false,
+                                "requestCert": true,
+                                "rejectUnauthorized": true
+                            },
+                            "_secureEstablished": true,
+                            "_securePending": false,
+                            "_newSessionPending": false,
+                            "_controlReleased": true,
+                            "secureConnecting": false,
+                            "_SNICallback": null,
+                            "servername": "api.telegram.org",
+                            "alpnProtocol": false,
+                            "authorized": true,
+                            "authorizationError": null,
+                            "encrypted": true,
+                            "_events": {
+                                "close": [
+                                    null,
+                                    null,
+                                    null
+                                ]
+                            },
+                            "_eventsCount": 9,
+                            "connecting": false,
+                            "_hadError": false,
+                            "_parent": null,
+                            "_host": "api.telegram.org",
+                            "_closeAfterHandlingError": false,
+                            "_readableState": {
+                                "highWaterMark": 65536,
+                                "buffer": [],
+                                "bufferIndex": 0,
+                                "length": 0,
+                                "pipes": [],
+                                "awaitDrainWriters": null
+                            },
+                            "_writableState": {
+                                "highWaterMark": 65536,
+                                "length": 0,
+                                "corked": 0,
+                                "writelen": 0,
+                                "bufferedIndex": 0,
+                                "pendingcb": 0
+                            },
+                            "allowHalfOpen": false,
+                            "_sockname": null,
+                            "_pendingData": null,
+                            "_pendingEncoding": "",
+                            "_server": null,
+                            "ssl": {
+                                "_parent": {
+                                    "reading": true,
+                                    "onconnection": null
+                                },
+                                "_parentWrap": null,
+                                "_secureContext": {
+                                    "context": {}
+                                },
+                                "reading": true
+                            },
+                            "_requestCert": true,
+                            "_rejectUnauthorized": true,
+                            "parser": null,
+                            "_httpMessage": null,
+                            "autoSelectFamilyAttemptedAddresses": [
+                                "149.154.167.220:443"
+                            ],
+                            "timeout": 0
+                        },
+                        {
+                            "_tlsOptions": {
+                                "pipe": false,
+                                "secureContext": {
+                                    "context": {}
+                                },
+                                "isServer": false,
+                                "requestCert": true,
+                                "rejectUnauthorized": true
+                            },
+                            "_secureEstablished": true,
+                            "_securePending": false,
+                            "_newSessionPending": false,
+                            "_controlReleased": true,
+                            "secureConnecting": false,
+                            "_SNICallback": null,
+                            "servername": "api.telegram.org",
+                            "alpnProtocol": false,
+                            "authorized": true,
+                            "authorizationError": null,
+                            "encrypted": true,
+                            "_events": {
+                                "close": [
+                                    null,
+                                    null,
+                                    null
+                                ]
+                            },
+                            "_eventsCount": 9,
+                            "connecting": false,
+                            "_hadError": false,
+                            "_parent": null,
+                            "_host": "api.telegram.org",
+                            "_closeAfterHandlingError": false,
+                            "_readableState": {
+                                "highWaterMark": 65536,
+                                "buffer": [],
+                                "bufferIndex": 0,
+                                "length": 0,
+                                "pipes": [],
+                                "awaitDrainWriters": null
+                            },
+                            "_writableState": {
+                                "highWaterMark": 65536,
+                                "length": 0,
+                                "corked": 0,
+                                "writelen": 0,
+                                "bufferedIndex": 0,
+                                "pendingcb": 0
+                            },
+                            "allowHalfOpen": false,
+                            "_sockname": null,
+                            "_pendingData": null,
+                            "_pendingEncoding": "",
+                            "_server": null,
+                            "ssl": {
+                                "_parent": {
+                                    "reading": true,
+                                    "onconnection": null
+                                },
+                                "_parentWrap": null,
+                                "_secureContext": {
+                                    "context": {}
+                                },
+                                "reading": true
+                            },
+                            "_requestCert": true,
+                            "_rejectUnauthorized": true,
+                            "parser": null,
+                            "_httpMessage": null,
+                            "autoSelectFamilyAttemptedAddresses": [
+                                "149.154.167.220:443"
+                            ],
+                            "timeout": 0
+                        }
+                    ]
+                },
+                "keepAliveMsecs": 10000,
+                "keepAlive": true,
+                "maxSockets": null,
+                "maxFreeSockets": 256,
+                "scheduling": "lifo",
+                "maxTotalSockets": null,
+                "totalSocketCount": 2,
+                "maxCachedSessions": 100,
+                "_sessionCache": {
+                    "list": [
+                        "api.telegram.org:443:::::::::::::::::::::"
+                    ]
+                }
+            },
+            "testEnv": false
+        }
+    },
+    "botInfo": {
+        "id": 8136625937,
+        "is_bot": true,
+        "first_name": "Getid",
+        "username": "FN3_davomatbot",
+        "can_join_groups": true,
+        "can_read_all_group_messages": false,
+        "supports_inline_queries": false,
+        "can_connect_to_business": false,
+        "has_main_web_app": false
+    },
+    "state": {},
+    "match": [
+        "start"
+    ],
+    "command": "start",
+    "payload": "",
+    "args": [],
+    "startPayload": ""
+}
