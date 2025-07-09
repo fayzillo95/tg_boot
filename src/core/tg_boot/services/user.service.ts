@@ -14,7 +14,9 @@ export class UserService {
     async createUser(ctx: Context) {
         if (ctx.message && ctx.message.from) {
             const user = ctx.message?.['contact']
-            await this.checkExists(user.user_id,ctx)
+            if((await this.checkExists(user.user_id,ctx))){
+                return 
+            }
 
             const result = await this.prisma.user.create({
                 data: {...user},
@@ -59,6 +61,9 @@ export class UserService {
         return user
     }
     async delete(id : number | undefined){
+        if(!(await this.prisma.user.findFirst({where : {user_id : id}}))){
+            return "Ma'lumot topilmadi !"
+        }
         const result = await this.prisma.user.delete({where : {user_id : id}})
         return result
     }

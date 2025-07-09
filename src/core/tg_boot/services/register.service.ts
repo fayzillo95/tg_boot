@@ -2,7 +2,7 @@ import { Ctx, On, Start, Update } from "nestjs-telegraf";
 import { PrismaService } from "src/core/prisma/prisma.service";
 import { Context } from "telegraf";
 import { UserService } from "./user.service";
-import { editMessage, getEditButtons, homeEntity, response, sendContactEntity, targetsEdit, updateTarget } from "./entitiys";
+import { editMessage, getEditButtons, homeEntity, homeMenu, response, sendContactEntity, targetsEdit, updateTarget } from "./entitiys";
 
 @Update()
 export class RegisterService {
@@ -18,47 +18,65 @@ export class RegisterService {
 
   @On("contact")
   async getContact(@Ctx() ctx: Context) {
-
     await this.userService.createUser(ctx)
+    ctx.telegram.setMyCommands([...homeMenu])
   }
 
   @On("text")
   async home(@Ctx() ctx: Context) {
-    const text = ctx.message?.['text'].trim()
-    const id = ctx.from?.id
-    const step = await this.userService.getStep(id)
-    if (!text || text.length === 0) {
-      return
-    }
-    if (text.startsWith("Profi")) {
-      await this.sendProfile(ctx)
-      return
-    }
-    if (text.startsWith("Edi")) {
-      if (!(await this.userService.findByUserId(id))) {
-        ctx.reply("Ro'yxatdan o'tmagan foydalnuvchi !", sendContactEntity)
+    try {
+      const text = ctx.message?.['text'].trim()
+      const id = ctx.from?.id
+      const step = await this.userService.getStep(id)
+      
+      if (!text || text.length === 0) {
         return
       }
-      ctx.reply(editMessage, getEditButtons)
-      return
-    }
-    if(text === 'Delete'){
-      await this.userService.delete(id)
-      ctx.reply("/start",sendContactEntity)
-      return
-    }
-    if (text.startsWith("4 Home")) {
-      if (!(await this.userService.findByUserId(id))) {
-        ctx.reply("Ro'yxatdan o'tmagan foydalnuvchi !", sendContactEntity)
+      if (text.startsWith("Profi")) {
+        await this.sendProfile(ctx)
         return
       }
-      ctx.reply("Menyudan tanlang !", homeEntity)
-    } else {
-      if (targetsEdit.includes(text)) this.editProfile(ctx, text, id)
-      if (step === 0) return
-      await this.updateItem(ctx, text, id)
-      this.sendProfile(ctx)
-      return
+      if (text.startsWith("Edi")) {
+        if (!(await this.userService.findByUserId(id))) {
+          ctx.reply("Ro'yxatdan o'tmagan foydalnuvchi !", sendContactEntity)
+          return
+        }
+        ctx.reply(editMessage, getEditButtons)
+        return
+      }
+      if (text === 'Delete') {
+        const d_sts = await this.userService.delete(id)
+        if (typeof d_sts === "string" && d_sts.includes("Ma'lumot topilmadi")) {
+          ctx.reply(d_sts, sendContactEntity)
+        } else {
+          ctx.reply("/start", sendContactEntity)
+        }
+        return
+      }
+      if (text === "Clear") {
+        await ctx.reply(
+          `Chat tarixini tozalash uchun Telegram ilovasida:\n\n` +
+          `1. Chatni oching\n` +
+          `2. Yuqoridagi 3 nuqta yoki profilga bosing\n` +
+          `3. "Clear chat history" yoki "Delete chat" tugmasini tanlang`
+        );
+        return
+      }
+      if (text.startsWith("4 Home")) {
+        if (!(await this.userService.findByUserId(id))) {
+          ctx.reply("Ro'yxatdan o'tmagan foydalnuvchi !", sendContactEntity)
+          return
+        }
+        ctx.reply("Menyudan tanlang !", homeEntity)
+      } else {
+        if (targetsEdit.includes(text)) this.editProfile(ctx, text, id)
+        if (step === 0) return
+        await this.updateItem(ctx, text, id)
+        this.sendProfile(ctx)
+        return
+      }
+    } catch (error) {
+      ctx.reply(error.message)
     }
   }
 
